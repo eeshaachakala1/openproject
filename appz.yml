@@ -23,6 +23,6 @@ properties:
     POSTGRES_PORT: 5432
     POSTGRES_DB: openproject
     POSTGRES_USER: openproject
-    POSTGRES_PASSWORD: 
+    POSTGRESQL_OPENPROJECT_PASSWORD:
       vault: POSTGRESQL_OPENPROJECT_PASSWORD
     revision: 33
