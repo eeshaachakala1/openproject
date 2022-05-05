@@ -2,27 +2,33 @@ app:
     name: OpenProject
     code: OPENPROJECT 
     notify: eachakala@ecloudcontrol.com
-
 build:
     version: 11.3
     env: DEV
     build_file: none
     output_files: output/*.zip
     image_template: openproject-11.3
-
 deploy:
     context: eeshaachakala1/DEV
+    type: statefulset
     replicas: 1
     port:
     - 80
     
+volumes:
+- claim: openproject-assets
+  mount: /var/openproject/assets 
+  name: assets
+  size: 5Gi   
+    
 properties:
-    SECRET_KEY_BASE: 
-      vault: SECRET_KEY_BASE
-    POSTGRES_HOST: openproject-postgres-13-x    
-    POSTGRES_PORT: 5432
-    POSTGRES_DB: openproject
-    POSTGRES_USER: openproject
-    POSTGRESQL_OPENPROJECT_PASSWORD:
-      vault: POSTGRESQL_OPENPROJECT_PASSWORD
-    revision: 34
+  ATTACHMENTS_STORAGE_PATH: /appz/data/openproject/assets/files 
+  SECRET_KEY_BASE: 
+    vault: SECRET_KEY_BASE
+  POSTGRES_HOST: openproject-postgres-13-x
+  POSTGRES_PORT: 5432
+  POSTGRES_DB: openproject
+  POSTGRES_USER: openproject
+  POSTGRES_PASSWORD: 
+    vault: POSTGRESQL_OPENPROJECT_PASSWORD
+  revision: 75
