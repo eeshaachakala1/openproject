@@ -32,4 +32,5 @@ properties:
   POSTGRES_USER: openproject
   POSTGRES_PASSWORD: 
     vault: POSTGRESQL_OPENPROJECT_PASSWORD
+  LOGO_FILE: logo.png
   revision: 81
