@@ -33,4 +33,4 @@ properties:
   POSTGRES_PASSWORD: 
     vault: POSTGRESQL_OPENPROJECT_PASSWORD
   LOGO_FILE: 0
-  revision: 81
+  revision: 82
