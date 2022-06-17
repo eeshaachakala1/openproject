@@ -33,5 +33,5 @@ properties:
   POSTGRES_PASSWORD: 
     vault: POSTGRESQL_OPENPROJECT_PASSWORD
   ENABLE_BOARDS: 1
-  LOGO_FILE: logo.png
+  LOGO_FILE: 0
   revision: 83
