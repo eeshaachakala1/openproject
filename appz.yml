@@ -3,11 +3,11 @@ app:
     code: OPENPROJECT 
     notify: eachakala@ecloudcontrol.com
 build:
-    version: 11.3
+    version: 12.1
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: openproject-11.3
+    image_template: penproject-12.1
     
 deploy:
     context: eeshaachakala1/DEV
@@ -21,11 +21,19 @@ volumes:
   mount: /var/openproject/assets 
   name: assets
   size: 5Gi   
+- claim: openproject-backup
+  mount: /appz/backup 
+  name: backup
+  size: 5Gi
+
     
 properties:
-  ATTACHMENTS_STORAGE_PATH: /appz/data/openproject/assets/files 
+  OPENPROJECT_ATTACHMENTS_STORAGE_PATH: /appz/data/openproject/assets/files 
   SECRET_KEY_BASE: 
     vault: SECRET_KEY_BASE
+  RSYNC_SECRET:
+    vault: RSYNC_SECRET
+  FILESYNC_ENABLE: 'yes'
   POSTGRES_HOST: openproject-postgres-13-x
   POSTGRES_PORT: 5432
   POSTGRES_DB: openproject
@@ -33,5 +41,4 @@ properties:
   POSTGRES_PASSWORD: 
     vault: POSTGRESQL_OPENPROJECT_PASSWORD
   ENABLE_BOARDS: 1
-  LOGO_FILE: logos/company_logo.png
   revision: 84
