@@ -41,4 +41,4 @@ properties:
   POSTGRES_PASSWORD: 
     vault: POSTGRESQL_OPENPROJECT_PASSWORD
   ENABLE_BOARDS: 1
-  revision: 84
+  revision: 85
