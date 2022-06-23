@@ -7,7 +7,7 @@ build:
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: penproject-12.1
+    image_template: openproject-12.1
     
 deploy:
     context: eeshaachakala1/DEV
